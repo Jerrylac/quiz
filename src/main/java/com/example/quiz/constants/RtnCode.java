@@ -5,7 +5,10 @@ public enum RtnCode {
 	PARAM_ERROR(400,"Param error"),//
 	ACCOUNT_NOT__FOUND(404,"Account not found!!"),//
 	DATE_FORMAT_ERROR(400,"Date format error!!"),//
-	ACCOUNT_EXISTED(400,"Account existed!!");
+	ACCOUNT_EXISTED(400,"Account existed!!"),//
+	QUESTION_IS_EMPTY(400,"Question is empty!!"),//
+	QUESTION_PARAM_ERROR(400,"Question param error"),//
+	QUIZ_CREATE_ERROR(400,"Quiz create error");
 	
 	
 

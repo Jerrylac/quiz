@@ -1,7 +1,6 @@
 package com.example.quiz.entity;
 
 import java.time.LocalDate;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -32,16 +31,20 @@ public class Quiz {
 	@Column(name="end_date")
 	private LocalDate endDate;
 	
-	private List<Question> questionList;
+	@Column(name="questions")
+	private String questionList;
 
+	@Column(name="is_published")
+	private boolean published;
+	
 	public Quiz() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	
 
-	public Quiz(String name, String description, LocalDate startDate, LocalDate endDate, List<Question> questionList) {
+	public Quiz(String name, String description, LocalDate startDate, LocalDate endDate, String questionList,
+			boolean published) {
 		super();
 		this.name = name;
 		this.description = description;
@@ -94,14 +97,26 @@ public class Quiz {
 
 
 
-	public List<Question> getQuestionList() {
+	public String getQuestionList() {
 		return questionList;
 	}
 
 
 
-	public void setQuestionList(List<Question> questionList) {
+	public void setQuestionList(String questionList) {
 		this.questionList = questionList;
+	}
+
+
+
+	public boolean isPublished() {
+		return published;
+	}
+
+
+
+	public void setPublished(boolean published) {
+		this.published = published;
 	}
 	
 	

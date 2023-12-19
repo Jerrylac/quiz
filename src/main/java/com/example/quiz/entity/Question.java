@@ -1,9 +1,6 @@
 package com.example.quiz.entity;
 
 public class Question {
-
-
-	public int quizNum;
 	
 	public int num;
 	
@@ -15,28 +12,20 @@ public class Question {
 	
 	public String options;
 	
-	public boolean published;
+//	public boolean published;
 
 
 	public Question() {
 		super();
 	}
 
-	public Question(String title, String type, boolean necessary, String options, boolean published) {
+	public Question(int num,String title, String type, boolean necessary, String options) {
 		super();
+		this.num=num;
 		this.title = title;
 		this.type = type;
 		this.necessary = necessary;
 		this.options = options;
-		this.published = published;
-	}
-
-	public int getQuizNum() {
-		return quizNum;
-	}
-
-	public void setQuizNum(int quizNum) {
-		this.quizNum = quizNum;
 	}
 
 	public int getNum() {
@@ -77,14 +66,6 @@ public class Question {
 
 	public void setOptions(String options) {
 		this.options = options;
-	}
-
-	public boolean isPublished() {
-		return published;
-	}
-
-	public void setPublished(boolean published) {
-		this.published = published;
 	}
 	
 	
