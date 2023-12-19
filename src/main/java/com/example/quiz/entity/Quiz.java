@@ -32,7 +32,7 @@ public class Quiz {
 	private LocalDate endDate;
 	
 	@Column(name="questions")
-	private String questionList;
+	private String questionStr;
 
 	@Column(name="is_published")
 	private boolean published;
@@ -43,14 +43,28 @@ public class Quiz {
 
 	
 
-	public Quiz(String name, String description, LocalDate startDate, LocalDate endDate, String questionList,
+	public Quiz(String name, String description, LocalDate startDate, LocalDate endDate, String questionStr,
 			boolean published) {
 		super();
 		this.name = name;
 		this.description = description;
 		this.startDate = startDate;
 		this.endDate = endDate;
-		this.questionList = questionList;
+		this.questionStr = questionStr;
+	}
+
+
+
+	public Quiz(int num, String name, String description, LocalDate startDate, LocalDate endDate, String questionStr,
+			boolean published) {
+		super();
+		this.num = num;
+		this.name = name;
+		this.description = description;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.questionStr = questionStr;
+		this.published = published;
 	}
 
 
@@ -97,14 +111,18 @@ public class Quiz {
 
 
 
-	public String getQuestionList() {
-		return questionList;
+
+
+
+
+	public String getQuestionStr() {
+		return questionStr;
 	}
 
 
 
-	public void setQuestionList(String questionList) {
-		this.questionList = questionList;
+	public void setQuestionStr(String questionStr) {
+		this.questionStr = questionStr;
 	}
 
 

@@ -1,5 +1,7 @@
 package com.example.quiz.entity;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,18 +33,26 @@ public class Writer {
 	@Column(name="age")
 	public int age;
 
+	@Column(name="answer")
+	public String answer;
+	
+	@Column(name="write_dade_time")
+	public LocalDateTime writeDadeTime;
+	
 	public Writer() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Writer(int quizNum, String name, String phone, String email, int age) {
+	public Writer(int quizNum, String name, String phone, String email, int age,String answer,LocalDateTime writeDadeTime) {
 		super();
 		this.quizNum = quizNum;
 		this.name = name;
 		this.phone = phone;
 		this.email = email;
 		this.age = age;
+		this.answer=answer;
+		this.writeDadeTime=writeDadeTime;
 	}
 
 	public int getNum() {
@@ -91,6 +101,22 @@ public class Writer {
 
 	public void setAge(int age) {
 		this.age = age;
+	}
+
+	public String getAnswer() {
+		return answer;
+	}
+
+	public void setAnswer(String answer) {
+		this.answer = answer;
+	}
+
+	public LocalDateTime getWriteDadeTime() {
+		return writeDadeTime;
+	}
+
+	public void setWriteDadeTime(LocalDateTime writeDadeTime) {
+		this.writeDadeTime = writeDadeTime;
 	}
 	
 	
