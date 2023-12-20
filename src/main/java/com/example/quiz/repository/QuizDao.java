@@ -12,4 +12,7 @@ import com.example.quiz.entity.Quiz;
 public interface QuizDao extends JpaRepository<Quiz,Integer>{
 
 	public List<Quiz> findByNameContainingAndStartDateAndEndDate(String name, LocalDate starData, LocalDate endData);
+	
+	public List<Quiz> findByNameContainingAndStartDateAndEndDateAndPublishedTrue(String name,
+			LocalDate starData, LocalDate endData);
 }

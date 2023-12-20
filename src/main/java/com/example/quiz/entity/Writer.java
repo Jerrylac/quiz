@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.example.quiz.vo.WriterReq;
+
 @Entity
 @Table(name="writer")
 public class Writer {
@@ -55,6 +57,17 @@ public class Writer {
 		this.writeDadeTime=writeDadeTime;
 	}
 
+	public Writer(WriterReq req) {
+		super();
+		this.quizNum = req.getQuizNum();
+		this.name = req.getName();
+		this.phone = req.getPhone();
+		this.email = req.getEmail();
+		this.age = req.getAge();
+		this.answer=req.getAnswer();
+		this.writeDadeTime=LocalDateTime.now();
+	}
+	
 	public int getNum() {
 		return num;
 	}

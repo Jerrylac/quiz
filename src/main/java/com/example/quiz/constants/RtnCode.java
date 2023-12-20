@@ -12,7 +12,9 @@ public enum RtnCode {
 	QUIZ_NOT_FOUMD(400,"Quiz not foumd"),//
 	QUIZ_CANNOT_BE_UPDATED(400,"Quiz cannot be updataed"),//
 	QUIZ_ID_LIST_IS_EMPTY(400,"Quiz id list is empty"),//
-	QUESTION_DELETE_ERROR(400,"Question delete reeor");
+	QUESTION_DELETE_ERROR(400,"Question delete reeor"),//
+	NO_QUESTION_ANSWER(400,"No question answer"),//
+	STRING_PARSER_ERROR(400,"String parser error");
 	
 	
 

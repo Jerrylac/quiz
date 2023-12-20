@@ -166,11 +166,12 @@ public class QuizServiceImpl implements QuizService {
 	}
 	//當search都為null的話代表搜尋所有資料
 	@Override
-	public QuizGetRes search(String quizName, LocalDate startData, LocalDate endData) {
+	public QuizGetRes search(String quizName, LocalDate startData, LocalDate endData,boolean isLongin) {
 		quizName=!StringUtils.hasText(quizName)?"":quizName;
 		startData=startData==null?LocalDate.of(1970, 01, 01):startData;
 		endData=endData==null?LocalDate.of(2099, 12, 31):endData;
-		List<Quiz> res=quizDao.findByNameContainingAndStartDateAndEndDate(quizName, startData, endData);
+		List<Quiz> res=isLongin?quizDao.findByNameContainingAndStartDateAndEndDate(quizName, startData, endData)
+				:quizDao.findByNameContainingAndStartDateAndEndDateAndPublishedTrue(quizName, startData, endData);
 		return new QuizGetRes(RtnCode.SUCCESSFUL.getCode(), RtnCode.SUCCESSFUL.getMessage(),res);
 	}
 
