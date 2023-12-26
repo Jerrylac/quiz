@@ -19,5 +19,5 @@ public interface QuizService {
 	
 	public QuizRes deleteQuestion(int quizNum,List<Integer> numlList);
 	
-	public QuizGetRes search(String quizName,LocalDate startData,LocalDate endData ,boolean isLongin);
+	public QuizGetRes search(String quizName,LocalDate startDate,LocalDate endDate ,boolean isLongin);
 }

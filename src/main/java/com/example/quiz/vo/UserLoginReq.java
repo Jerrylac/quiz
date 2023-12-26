@@ -4,17 +4,17 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class UserLoginReq {
 	
-	private String accout;
+	private String account;
 	
 	@JsonProperty("password")
 	private String pwd;
 
-	public String getAccout() {
-		return accout;
+	public String getAccount() {
+		return account;
 	}
 
-	public void setAccout(String accout) {
-		this.accout = accout;
+	public void setAccount(String accout) {
+		this.account = accout;
 	}
 
 	public String getPwd() {

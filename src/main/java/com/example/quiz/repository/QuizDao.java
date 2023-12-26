@@ -10,6 +10,8 @@ import com.example.quiz.entity.Quiz;
 
 @Repository
 public interface QuizDao extends JpaRepository<Quiz,Integer>{
+	
+	public int deleteByNumIn(List<Integer> numList);
 
 	public List<Quiz> findByNameContainingAndStartDateAndEndDate(String name, LocalDate starData, LocalDate endData);
 	

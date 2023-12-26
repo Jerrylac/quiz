@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -23,6 +25,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
 public class QuizServiceImpl implements QuizService {
+	
+	//slf4j
+	private Logger logger=LoggerFactory.getLogger(getClass());
+	
 //	字串與物件(類別)互轉
 	private ObjectMapper mapper=new ObjectMapper();
 
@@ -127,7 +133,12 @@ public class QuizServiceImpl implements QuizService {
 				return new QuizRes(RtnCode.QUIZ_CANNOT_BE_UPDATED.getCode(), RtnCode.QUIZ_CANNOT_BE_UPDATED.getMessage());
 			}
 		}
-		quizDao.deleteAllById(numlList);
+		try {
+			quizDao.deleteByNumIn(numlList);	
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+		
 		return new QuizRes(RtnCode.SUCCESSFUL.getCode(), RtnCode.SUCCESSFUL.getMessage());
 	}
 	@Override
@@ -166,12 +177,12 @@ public class QuizServiceImpl implements QuizService {
 	}
 	//當search都為null的話代表搜尋所有資料
 	@Override
-	public QuizGetRes search(String quizName, LocalDate startData, LocalDate endData,boolean isLongin) {
+	public QuizGetRes search(String quizName, LocalDate startDate, LocalDate endDate,boolean isLongin) {
 		quizName=!StringUtils.hasText(quizName)?"":quizName;
-		startData=startData==null?LocalDate.of(1970, 01, 01):startData;
-		endData=endData==null?LocalDate.of(2099, 12, 31):endData;
-		List<Quiz> res=isLongin?quizDao.findByNameContainingAndStartDateAndEndDate(quizName, startData, endData)
-				:quizDao.findByNameContainingAndStartDateAndEndDateAndPublishedTrue(quizName, startData, endData);
+		startDate=startDate==null?LocalDate.of(1970, 01, 01):startDate;
+		endDate=endDate==null?LocalDate.of(2099, 12, 31):endDate;
+		List<Quiz> res=isLongin?quizDao.findByNameContainingAndStartDateAndEndDate(quizName, startDate, endDate)
+				:quizDao.findByNameContainingAndStartDateAndEndDateAndPublishedTrue(quizName, startDate, endDate);
 		return new QuizGetRes(RtnCode.SUCCESSFUL.getCode(), RtnCode.SUCCESSFUL.getMessage(),res);
 	}
 

@@ -29,7 +29,7 @@ public class QuizServiceTest {
 				new Question(1,"test1","single",true,"AAA;BBB,CCC"),
 				new Question(2,"test2","single",false,"QQQ;WWW,EEE"));
 		quizService.create("AAA", "BBB",LocalDate.now(), LocalDate.now().plusDays(1), list, false);
-	}
+	}	
 	
 	@Test
 	public void objecMapperTest1() {

@@ -14,7 +14,8 @@ public enum RtnCode {
 	QUIZ_ID_LIST_IS_EMPTY(400,"Quiz id list is empty"),//
 	QUESTION_DELETE_ERROR(400,"Question delete reeor"),//
 	NO_QUESTION_ANSWER(400,"No question answer"),//
-	STRING_PARSER_ERROR(400,"String parser error");
+	STRING_PARSER_ERROR(400,"String parser error"),//
+	PLEASE_LOGIN_FIRST(400,"Please login first");
 	
 	
 

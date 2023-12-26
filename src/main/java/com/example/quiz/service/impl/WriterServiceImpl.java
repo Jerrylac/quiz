@@ -23,7 +23,7 @@ import com.example.quiz.service.ifs.WriterService;
 import com.example.quiz.vo.Answer;
 import com.example.quiz.vo.Count;
 import com.example.quiz.vo.QuizRes;
-import com.example.quiz.vo.Statistics;
+import com.example.quiz.vo.StatisticsRes;
 import com.example.quiz.vo.WriterGetRes;
 import com.example.quiz.vo.WriterReq;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -87,9 +87,9 @@ public class WriterServiceImpl implements WriterService{
 	}
 
 	@Override
-	public Statistics count(int quizNum) {
+	public StatisticsRes count(int quizNum) {
 		if(quizNum<=0) {
-			return new Statistics(RtnCode.PARAM_ERROR.getCode(), RtnCode.PARAM_ERROR.getMessage()
+			return new StatisticsRes(RtnCode.PARAM_ERROR.getCode(), RtnCode.PARAM_ERROR.getMessage()
 					,quizNum,null);
 		}
 		List<Writer> res = writerDao.findByQuizNum(quizNum);
@@ -137,7 +137,7 @@ public class WriterServiceImpl implements WriterService{
 			count.setOptionCountMap(optionCountMap);
 			countList.add(count);
 		}
-		return new Statistics(RtnCode.SUCCESSFUL.getCode(), RtnCode.SUCCESSFUL.getMessage()
+		return new StatisticsRes(RtnCode.SUCCESSFUL.getCode(), RtnCode.SUCCESSFUL.getMessage()
 				,quizNum,countList);
 	}
 	
@@ -179,9 +179,9 @@ public class WriterServiceImpl implements WriterService{
 	}
 	
 	//­ì¥»ªºcount
-	public Statistics count1(int quizNum) {
+	public StatisticsRes count1(int quizNum) {
 		if(quizNum<=0) {
-			return new Statistics(RtnCode.PARAM_ERROR.getCode(), RtnCode.PARAM_ERROR.getMessage()
+			return new StatisticsRes(RtnCode.PARAM_ERROR.getCode(), RtnCode.PARAM_ERROR.getMessage()
 					,quizNum,null);
 		}
 		List<Writer> res = writerDao.findByQuizNum(quizNum);
