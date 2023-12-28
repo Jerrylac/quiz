@@ -12,7 +12,7 @@ public class QuizSearchReq {
 	@JsonProperty(value = "start_data")
 	private LocalDate startDate;
 	
-	@JsonProperty(value = "start_data")
+	@JsonProperty(value = "end_data")
 	private LocalDate endDate ;
 	
 	@JsonProperty(value = "is_longin")

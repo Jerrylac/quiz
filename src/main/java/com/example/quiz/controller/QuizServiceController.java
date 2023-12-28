@@ -30,10 +30,10 @@ public class QuizServiceController {
 	
 	@PostMapping(value = "quiz/create")
 	public QuizRes create(@RequestBody QuizReq req, HttpSession session) {
-		String attr= (String) session.getAttribute("account");
-		if(!StringUtils.hasText(attr)) {
-			return new QuizRes(RtnCode.PLEASE_LOGIN_FIRST.getCode(), RtnCode.PLEASE_LOGIN_FIRST.getMessage());
-		}
+//		String attr= (String) session.getAttribute("account");
+//		if(!StringUtils.hasText(attr)) {
+//			return new QuizRes(RtnCode.PLEASE_LOGIN_FIRST.getCode(), RtnCode.PLEASE_LOGIN_FIRST.getMessage());
+//		}
 		return quizService.create(req.getName(), req.getDescription(), req.getStartData(), req.getEndDate()
 				, req.getQuestionList(), req.isPublished());
 	}

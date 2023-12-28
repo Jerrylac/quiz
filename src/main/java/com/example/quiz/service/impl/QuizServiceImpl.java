@@ -43,13 +43,13 @@ public class QuizServiceImpl implements QuizService {
 			return new QuizRes(RtnCode.PARAM_ERROR.getCode(), RtnCode.PARAM_ERROR.getMessage());
 		}
 		//允許先建立問卷資料，而不同時建立問題
-		if(!CollectionUtils.isEmpty(questionList)) {
-			//check question
-			QuizRes checkResult=checkQuestion(questionList);
-			if(checkResult != null) {
-				return checkResult;
-			}	
-		}
+//		if(!CollectionUtils.isEmpty(questionList)) {
+//			//check question
+//			QuizRes checkResult=checkQuestion(questionList);
+//			if(checkResult != null) {
+//				return checkResult;
+//			}	
+//		}
 		if (startData.isAfter(endDate)) {
 			return new QuizRes(RtnCode.DATE_FORMAT_ERROR.getCode(), RtnCode.DATE_FORMAT_ERROR.getMessage());
 		}
@@ -181,8 +181,8 @@ public class QuizServiceImpl implements QuizService {
 		quizName=!StringUtils.hasText(quizName)?"":quizName;
 		startDate=startDate==null?LocalDate.of(1970, 01, 01):startDate;
 		endDate=endDate==null?LocalDate.of(2099, 12, 31):endDate;
-		List<Quiz> res=isLongin?quizDao.findByNameContainingAndStartDateAndEndDate(quizName, startDate, endDate)
-				:quizDao.findByNameContainingAndStartDateAndEndDateAndPublishedTrue(quizName, startDate, endDate);
+		List<Quiz> res=isLongin?quizDao.findByNameContainingAndStartDateGreaterThanEqualAndEndDateLessThanEqual(quizName, startDate, endDate)
+				:quizDao.findByNameContainingAndStartDateGreaterThanEqualAndEndDateLessThanEqualAndPublishedTrue(quizName, startDate, endDate);
 		return new QuizGetRes(RtnCode.SUCCESSFUL.getCode(), RtnCode.SUCCESSFUL.getMessage(),res);
 	}
 

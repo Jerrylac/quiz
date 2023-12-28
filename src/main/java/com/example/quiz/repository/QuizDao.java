@@ -13,8 +13,8 @@ public interface QuizDao extends JpaRepository<Quiz,Integer>{
 	
 	public int deleteByNumIn(List<Integer> numList);
 
-	public List<Quiz> findByNameContainingAndStartDateAndEndDate(String name, LocalDate starData, LocalDate endData);
+	public List<Quiz> findByNameContainingAndStartDateGreaterThanEqualAndEndDateLessThanEqual(String name, LocalDate starData, LocalDate endData);
 	
-	public List<Quiz> findByNameContainingAndStartDateAndEndDateAndPublishedTrue(String name,
+	public List<Quiz> findByNameContainingAndStartDateGreaterThanEqualAndEndDateLessThanEqualAndPublishedTrue(String name,
 			LocalDate starData, LocalDate endData);
 }
