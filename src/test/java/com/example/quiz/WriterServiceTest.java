@@ -23,7 +23,8 @@ public class WriterServiceTest {
 		list.add(new Answer(2,optionList2));
 		
 		List<String> optionList3= new ArrayList<>();
-		optionList3.add("Q_Q"+"T_T");
+		optionList3.add("Q_Q");
+		optionList3.add("T_T");
 		list.add(new Answer(3,optionList3));
 		
 		ObjectMapper mapper =new ObjectMapper();

@@ -52,7 +52,7 @@ public class WriterServiceImpl implements WriterService{
 		try {
 			//[{"qNum":1,"optionList":["BBB"]},{"qNum":2,"optionList":["CCC"]},{"qNum":3,"optionList":["DDD"]}]
 			List<Answer> ansList= mapper.readValue(req.getAnswer(), new TypeReference<List<Answer>>() {});
-			Optional<Quiz> op = quizDao.findById(req.quizNum);
+			Optional<Quiz> op = quizDao.findById(req.getQuizNum());
 			if(op.isEmpty()) {
 				return new QuizRes(RtnCode.QUIZ_NOT_FOUMD.getCode(), RtnCode.QUIZ_NOT_FOUMD.getMessage());
 			}
@@ -153,7 +153,7 @@ public class WriterServiceImpl implements WriterService{
 		//把answer的字串轉成map
 		try {
 			Map<String,String> map = mapper.readValue(req.getAnswer(), Map.class);
-			Optional<Quiz> op = quizDao.findById(req.quizNum);
+			Optional<Quiz> op = quizDao.findById(req.getQuizNum());
 			if(op.isEmpty()) {
 				return new QuizRes(RtnCode.QUIZ_NOT_FOUMD.getCode(), RtnCode.QUIZ_NOT_FOUMD.getMessage());
 			}

@@ -64,28 +64,28 @@ public class QuizServiceImpl implements QuizService {
 			 
 		
 	}
-	private QuizRes checkQuestion(List<Question>questionList) {
-		for(Question item:questionList) {
-			if(item.getNum()==0||!StringUtils.hasText(item.getTitle())
-					||!StringUtils.hasText(item.getType()) ) {
-				return new QuizRes(RtnCode.QUESTION_PARAM_ERROR.getCode(), RtnCode.QUESTION_PARAM_ERROR.getMessage());
-			}
-		}
-		return null;
-	}
+//	private QuizRes checkQuestion(List<Question>questionList) {
+//		for(Question item:questionList) {
+//			if(item.getNum()==0||!StringUtils.hasText(item.getTitle())
+//					||!StringUtils.hasText(item.getType()) ) {
+//				return new QuizRes(RtnCode.QUESTION_PARAM_ERROR.getCode(), RtnCode.QUESTION_PARAM_ERROR.getMessage());
+//			}
+//		}
+//		return null;
+//	}
 	@Override
 	public QuizRes upDate(int num, String name, String description, LocalDate startData, LocalDate endDate,
 			List<Question> questionList, boolean published) {
 		if(num<=0) {
 			return new QuizRes(RtnCode.PARAM_ERROR.getCode(), RtnCode.PARAM_ERROR.getMessage());
 		}
-		if(!CollectionUtils.isEmpty(questionList)) {
-			//check question
-			QuizRes checkResult=checkQuestion(questionList);
-			if(checkResult != null) {
-				return checkResult;
-			}	
-		}
+//		if(!CollectionUtils.isEmpty(questionList)) {
+//			//check question
+//			QuizRes checkResult=checkQuestion(questionList);
+//			if(checkResult != null) {
+//				return checkResult;
+//			}	
+//		}
 		Optional<Quiz> op= quizDao.findById(num);
 		if(op.isEmpty()) {
 			return new QuizRes(RtnCode.QUIZ_NOT_FOUMD.getCode(), RtnCode.QUIZ_NOT_FOUMD.getMessage());
@@ -134,7 +134,7 @@ public class QuizServiceImpl implements QuizService {
 			}
 		}
 		try {
-			quizDao.deleteByNumIn(numlList);	
+			quizDao.deleteAllById(numlList);	
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		}

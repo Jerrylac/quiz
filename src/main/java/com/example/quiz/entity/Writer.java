@@ -38,7 +38,7 @@ public class Writer {
 	@Column(name="answer")
 	public String answer;
 	
-	@Column(name="write_dade_time")
+	@Column(name="write_date_time")
 	public LocalDateTime writeDadeTime;
 	
 	public Writer() {

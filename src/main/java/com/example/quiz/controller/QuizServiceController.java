@@ -50,8 +50,8 @@ public class QuizServiceController {
 	//@RequestBody 把计琌 List,uri 穦琌 quiz/delet_quiz?quiz_num_list=100,200,300
 	//ぃノい珹腹
 	@PostMapping(value = "quiz/delete")
-	public QuizRes deleteQuiz(@RequestBody DeleteQuizReq req) {
-		return quizService.deleteQuiz(req.getNumlList());
+	public QuizRes deleteQuiz(@RequestParam(value = "quiz_num_list") List<Integer> numlList) {
+		return quizService.deleteQuiz(numlList);
 	}
 	
 	//@RequestParam 把计Τ,uri把计璶ノ&﹃钡:uri 穦琌delete_question?quiz_num=絪腹&question_num_list=絪腹1,絪腹2

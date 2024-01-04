@@ -1,6 +1,7 @@
 package com.example.quiz.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,6 +13,7 @@ import com.example.quiz.vo.StatisticsRes;
 import com.example.quiz.vo.WriterGetRes;
 import com.example.quiz.vo.WriterReq;
 
+@CrossOrigin
 @RestController
 public class WriterServiceController {
 

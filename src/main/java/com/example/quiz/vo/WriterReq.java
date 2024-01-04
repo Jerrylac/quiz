@@ -2,18 +2,18 @@ package com.example.quiz.vo;
 
 public class WriterReq {
 
-	public int quizNum;
+	private  int quizNum;
 	
-	public String name;
+	private  String name;
 	
-	public String phone;
+	private  String phone;
 	
-	public String email;
+	private  String email;
 	
-	public int age;
+	private  int age;
 	
 	//前端傳過來的是 Json 格式的字串
-	public String answer;
+	private String answer;
 
 	public WriterReq() {
 		super();
